@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate remov3e</title>
+</head>
+
+<body>
+    <script>
+        let n = Number(prompt("Enter array size :"))
+        let arr = new Array(n);
+        let arr2 = new Array();
+
+        for (i = 0; i < n; i++) {
+            arr[i] = Number(prompt("Enter array element : "))
+        }
+
+        document.write("Original Array : ")
+        for (i = 0; i < n; i++) {
+            document.write(arr[i] + "<br>")
+        }
+
+
+        for (i = 0; i < n; i++) {
+            if (!arr2.includes(arr[i])) {
+                arr2.push(arr[i])
+            }
+        }
+
+        document.write("Updated Array : ")
+        document.write(arr2 + "<br>")
+      
+
+    </script>
+</body>
+
+</html>

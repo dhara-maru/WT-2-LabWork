@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max in array</title>
+</head>
+<body>
+    <script>
+        let n = Number(prompt("Enter size : "))
+        let arr = new Array(n);
+
+        for(i=0; i<n; i++){
+            arr[i] = Number(prompt("Enter elem"))
+        }
+    let max = arr[0]
+
+        for(i=0; i<n; i++){
+            if(arr[i] > max){
+                max = arr[i]
+            }
+        }
+
+        document.write(max)
+    </script>
+</body>
+</html>

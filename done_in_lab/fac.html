@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Faculties List</title>
+</head>
+
+<body>
+    <h1 align="center" class="p-5">Faculties</h1>
+
+
+    <div class="container d-flex">
+
+    </div>
+
+
+
+    <script>
+        let facs = [{
+            id: 1,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/5---29-04-2023-11-00-29.jpg",
+            name: "Dr. Gopi Sanghani",
+            Desig: 'Dean CS',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 2,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/3---28-04-2023-02-02-42.jpg",
+            name: "Dr. Nilesh Gambhva",
+            Desig: 'Professor',
+            exp: '20 years',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 3,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/6---28-04-2023-02-06-07.jpg",
+            name: "Dr. Pradhyuman Jadeja",
+            Desig: 'Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 4,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/8---28-04-2023-02-06-25.jpg",
+            name: "Prof. Maulik Trivedi",
+            Desig: 'Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 5,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/12---28-04-2023-02-06-51.jpg",
+            name: "Prof. Firoz Sherasiya",
+            Desig: 'Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 6,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/5---29-04-2023-11-00-29.jpg",
+            name: "Dr. Gopi Sanghani",
+            Desig: 'Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 8,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/10---28-04-2023-02-07-03.jpg",
+            name: "Prof. Rupesh Viashnav",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 9,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/15---28-04-2023-02-07-35.jpg",
+            name: "Prof. Arjun Bala",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 10,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/214---28-04-2023-02-08-35.jpg",
+            name: "DProf. naimish Vadodariya",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 11,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/317---28-04-2023-01-32-29.jpg",
+            name: "Prof. Vaseem Ghada",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 12,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/363---29-04-2023-01-46-16.jpg",
+            name: "Prof. Sharon Mohatra",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 13,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/9---28-04-2023-02-06-37.jpg",
+            name: "Prof. Dixita Kagathara",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 14,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/11---29-04-2023-01-44-21.jpg",
+            name: "Prof. Swati Sharma",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+        {
+            id: 15,
+            image: "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/13---28-04-2023-02-07-48.jpg",
+            name: "Prof. mayur Padia",
+            Desig: 'Asst. Professor',
+            exp: '20 years',
+            qua: 'PhD. , M.tech',
+            Working: 'Jul - 2012'
+        },
+
+        ]
+
+
+
+        document.write("<div class='conatiner-fluid'>")
+        document.write("<div class='row'>")
+        for (fac of facs) {
+
+            document.write("<div class='card m-5 rounded-2' style='width: 18rem;'>")
+            document.write(`<img src='${fac.image}' class='card-img-top my-3'>`)
+            document.write("<div class='card-body'>")
+            document.write(`<h5 class='card-title m-3'>${fac.name}</h5>`)
+            document.write("<hr>")
+            document.write(`<p class='card-text fw-bold fs-6'>${fac.Desig}</p>`)
+            document.write(`<p class='card-text'>${fac.exp}</p>`)
+            document.write("<hr>")
+            document.write("<div class='fw-lighter'> Qualification </div> ")
+            document.write(`<p class='card-text text-primary fw-bold'>${fac.qua}</p><hr>`)
+            document.write("<div class='fw-lighter'> Working Since </div> ")
+            document.write(`<p class='card-text text-success fw-bold'>${fac.Working}</p>`)
+            document.write("</div>")
+            document.write("</div>")
+
+        }
+        document.write("</div>")
+
+        document.write("</div>")
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
