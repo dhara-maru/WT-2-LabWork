@@ -1,7 +1,10 @@
-const path = require('path');
+const pathvar = require('path');
 
-console.log(path.basename('/test/example.txt'));
-console.log(path.dirname('/test/example.txt'));
-console.log(path.extname('/test/example.txt'));
-console.log(path.join('/test', 'example.txt'));
-console.log(path.resolve('example.txt'));
+const path = 'C:/Users/student/Desktop/WT2dhara/path.js'
+
+console.log(pathvar.basename(path));
+console.log(pathvar.dirname(path));
+console.log(pathvar.extname(path));
+console.log(pathvar.isAbsolute(path));
+console.log(pathvar.join('abc', 'xyz'));
+console.log(pathvar.relative('C:', 'Desktop'));
