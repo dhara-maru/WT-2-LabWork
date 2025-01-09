@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let rs = Number(prompt("Enter rupees : "))//
+let choco = rs; //15
+let wrapper = choco; //15 
+let AdditionalChoco;
+let AdditionalWrapper;
+let RemainingWrapper;
+while(wrapper>0){ //15
+    AdditionalChoco = wrapper/3   //15/3 = 5
+    AdditionalWrapper = AdditionalChoco //2
+    AdditionalWrapper = AdditionalChoco/3
+
+    RemainingWrapper=AdditionalChoco%3 //1
+    choco = choco + AdditionalChoco
+}
+
+document.write(choco);
+
+
+    </script>
+</body>
+</html>
