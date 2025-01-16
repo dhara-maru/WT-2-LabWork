@@ -1,0 +1,16 @@
+{
+    "name": "wt2dhara-16jan",
+    "version": "1.0.0",
+    "description": "A simple project using ES modules",
+    "main": "connection.js",
+    "scripts": {
+        "start": "node connection.js"
+    },
+    "type": "module",
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.21.2",
+        "mongoose": "^8.9.5"
+    }
+}
