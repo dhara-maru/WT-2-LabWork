@@ -6,6 +6,8 @@ import Footer from './Footer'
 import About from './About'
 import Contact from './Contact'
 import Blog from './Blog'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Faculty from './Faculty'
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
         <Route path='/about' element={<About/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/products' element={<Products/>}></Route>
+        <Route path='/faculties' element={<Faculty/>}></Route>
         <Route path='/blogs' element={<Blog/>}></Route>
       </Routes>
       <Footer></Footer>
