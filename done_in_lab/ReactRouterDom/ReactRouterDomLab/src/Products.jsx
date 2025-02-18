@@ -1,8 +1,8 @@
-import React from 'react';
-import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
 
 const Products = () => {
-    const products = [
+    const initialProducts = [
         {
             id: 1,
             title: "Graphic Novel",
@@ -26,48 +26,71 @@ const Products = () => {
         }
     ];
 
+    const [products, setProducts] = useState(initialProducts);
+    const [newProduct, setNewProduct] = useState({
+        title: "",
+        price: "",
+        desc: "",
+        imgurl: "",
+    });
+
+    const inputChange = (e) => {
+        setNewProduct({
+            ...newProduct,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const addProduct = () => {
+        if (!newProduct.title || !newProduct.price || !newProduct.desc || !newProduct.imgurl) return;
+        setProducts([
+            ...products,
+            {
+                ...newProduct,
+                id: products.length ? products[products.length - 1].id + 1 : 1,
+            }
+        ]);
+        setNewProduct({ title: "", price: "", desc: "", imgurl: "" });
+    };
+
     return (
         <Container className="py-5">
             {/* Add Product Form */}
-            <div className="bg-white shadow p-4 rounded mx-auto" style={{ maxWidth: '600px' }}>
-                <h2 className="text-center mb-4">Add New Product</h2>
+            <div className="bg-light shadow-lg p-5 rounded mx-auto border-start border-4 border-success" style={{ maxWidth: "500px" }}>
+                <h2 className="text-center mb-4 text-success">Add Product</h2>
                 <Form>
                     <Form.Group className="mb-3">
-                        <Form.Label>Product ID:</Form.Label>
-                        <Form.Control type="number" placeholder="Enter Product ID" />
+                        <Form.Label className="fw-bold">Product Name:</Form.Label>
+                        <Form.Control type="text" name="title" placeholder="Enter Product Name" value={newProduct.title} onChange={inputChange} className="shadow-sm" />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label>Product Name:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Product Name" />
+                        <Form.Label className="fw-bold">Price:</Form.Label>
+                        <Form.Control type="number" name="price" placeholder="Enter Price" value={newProduct.price} onChange={inputChange} className="shadow-sm" />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label>Product Price:</Form.Label>
-                        <Form.Control type="number" placeholder="Enter Product Price" />
+                        <Form.Label className="fw-bold">Description:</Form.Label>
+                        <Form.Control as="textarea" name="desc" rows={3} placeholder="Enter Product Description" value={newProduct.desc} onChange={inputChange} className="shadow-sm" />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label>Product Description:</Form.Label>
-                        <Form.Control as="textarea" rows={3} placeholder="Enter Product Description" />
+                        <Form.Label className="fw-bold">Image URL:</Form.Label>
+                        <Form.Control type="text" name="imgurl" placeholder="Enter Image URL" value={newProduct.imgurl} onChange={inputChange} className="shadow-sm" />
                     </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Product Image URL:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Product Image URL" />
-                    </Form.Group>
-                    <Button variant="primary" className="w-100">Add Product</Button>
+                    <Button variant="success" className="w-100 fw-bold" onClick={addProduct}>Add Product</Button>
                 </Form>
             </div>
 
             {/* Product List */}
-            <h2 className="text-center my-5">All Products</h2>
+            <h2 className="text-center my-5 text-success">All Products</h2>
             <Row className="g-4">
                 {products.map(prod => (
                     <Col key={prod.id} xs={12} md={6} lg={4}>
-                        <Card className="h-100 shadow">
-                            <Card.Img variant="top" src={prod.imgurl} style={{ height: '250px', objectFit: 'cover' }} />
-                            <Card.Body>
-                                <Card.Title>{prod.title}</Card.Title>
-                                <Card.Text>{prod.desc}</Card.Text>
+                        <Card className="h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                            <Card.Img variant="top" src={prod.imgurl} className="rounded-top-4" style={{ height: "250px", objectFit: "cover" }} />
+                            <Card.Body className="text-center">
+                                <Card.Title className="fw-bold">{prod.title}</Card.Title>
+                                <Card.Text className="text-secondary">{prod.desc}</Card.Text>
                                 <h5 className="fw-bold">₹ {prod.price}</h5>
-                                <Button variant="success" className="mt-2">Buy Now</Button>
+                                <Button variant="outline-success" className="fw-bold">Buy Now</Button>
                             </Card.Body>
                         </Card>
                     </Col>
