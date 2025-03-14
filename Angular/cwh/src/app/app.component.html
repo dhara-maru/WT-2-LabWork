@@ -1,0 +1,27 @@
+<div>
+  <!-- interpolation -->
+  Product Title : {{title}}   
+  <br>
+
+  <!-- property binding -->
+  <img [src] = "imgUrl"/>
+  <br>
+<br>
+  <!-- event binding -->
+  <button (click)="buyNow()">Add to cart</button>
+
+  <br><br>
+
+  <!-- two way binding  -->
+   <input type="text" [(ngModel)]="name"/>
+   <p>{{name}}</p>
+</div>
+
+<a routerLink="/">Home</a>&nbsp;
+<a routerLink="/about">About</a>&nbsp;
+<a routerLink="/contact">Contact</a>&nbsp;
+<router-outlet></router-outlet>
+
+
+
+
