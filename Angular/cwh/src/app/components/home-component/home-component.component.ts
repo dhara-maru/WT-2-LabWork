@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home-component',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './home-component.component.html',
-  styleUrl: './home-component.component.css'
+  styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent {
   active = true;
-  inActive = false;
   myColor = 'blue';
 
-  togglefun(){
+  items = ['Angular', 'React', 'Vue', 'Svelte'];
+  selectedFramework = 'Angular';
+
+  togglefun() {
     this.active = !this.active;
-    this.inActive = !this.inActive;
   }
 }

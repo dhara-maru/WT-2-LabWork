@@ -1,7 +1,21 @@
 <p>home-component works!</p>
 
-<p [ngClass]="{'active' : active}" [ngStyle]="{'color' : myColor}"> Ng Class demo </p>
+<p [ngClass]="{'active': active, 'inactive': !active}" [ngStyle]="{'color': myColor}">
+  Ng Class & NgStyle Demo
+</p>
 
-<p *ngIf="10>20"> 10 is greater than 20</p>
+<p *ngIf="10 < 20"> 10 is less than 20 </p>
 
-<button (click)="togglefun()">Click here</button>
+<button (click)="togglefun()">Toggle Active</button>
+
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<div [ngSwitch]="selectedFramework">
+  <p *ngSwitchCase="'Angular'">You selected Angular</p>
+  <p *ngSwitchCase="'React'">You selected React</p>
+  <p *ngSwitchCase="'Vue'">You selected Vue</p>
+  <p *ngSwitchCase="'Svelte'">You selected Svelte</p>
+  <p *ngSwitchDefault>Select a framework</p>
+</div>
