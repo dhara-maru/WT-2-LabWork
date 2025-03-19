@@ -1,0 +1,92 @@
+<form #facultyForm="ngForm" (submit)="onSubmit(facultyForm)">
+    <!-- Name Field -->
+    <div>
+      <label for="name">Name:</label>
+      <input 
+        type="text" 
+        name="name" 
+        [(ngModel)]="faculty.name"
+        required
+        minlength="3"
+        #name="ngModel"
+      >
+      <span *ngIf="name.invalid && name.touched">
+        <p *ngIf="name.errors?.['required']">Name is Required</p>
+        <p *ngIf="name.errors?.['minlength']">Name must be at least 3 characters</p>
+      </span>
+    </div>
+  
+    <!-- Designation Field -->
+    <div>
+      <label for="designation">Designation:</label>
+      <input 
+        type="text" 
+        name="designation" 
+        [(ngModel)]="faculty.designation"
+        required
+        minlength="3"
+        #designation="ngModel"
+      >
+      <span *ngIf="designation.invalid && designation.touched">
+        <p *ngIf="designation.errors?.['required']">Designation is Required</p>
+        <p *ngIf="designation.errors?.['minlength']">Designation must be at least 3 characters</p>
+      </span>
+    </div>
+  
+    <!-- Degree Field -->
+    <div>
+      <label for="degree">Degree:</label>
+      <input 
+        type="text" 
+        name="degree" 
+        [(ngModel)]="faculty.degree"
+        required
+        minlength="2"
+        #degree="ngModel"
+      >
+      <span *ngIf="degree.invalid && degree.touched">
+        <p *ngIf="degree.errors?.['required']">Degree is Required</p>
+        <p *ngIf="degree.errors?.['minlength']">Degree must be at least 2 characters</p>
+      </span>
+    </div>
+  
+    <!-- Experience Field -->
+    <div>
+      <label for="experience">Experience (in years):</label>
+      <input 
+        type="number" 
+        name="experience" 
+        [(ngModel)]="faculty.experience"
+        required
+        min="0"
+        #experience="ngModel"
+      >
+      <span *ngIf="experience.invalid && experience.touched">
+        <p *ngIf="experience.errors?.['required']">Experience is Required</p>
+        <p *ngIf="experience.errors?.['min']">Experience cannot be negative</p>
+      </span>
+    </div>
+  
+    <!-- Image URL Field -->
+    <div>
+      <label for="imageURL">Image URL:</label>
+      <input 
+        type="url" 
+        name="imageURL" 
+        [(ngModel)]="faculty.imageURL"
+        required
+        pattern="https?://.+"
+        #imageURL="ngModel"
+      >
+      <span *ngIf="imageURL.invalid && imageURL.touched">
+        <p *ngIf="imageURL.errors?.['required']">Image URL is Required</p>
+        <p *ngIf="imageURL.errors?.['pattern']">Please enter a valid URL (starting with http:// or https://)</p>
+      </span>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="facultyForm.invalid">Submit</button>
+  </form>
+  
+  <!-- Success Message -->
+  <p *ngIf="submitted">Faculty Data Submitted Successfully!</p>

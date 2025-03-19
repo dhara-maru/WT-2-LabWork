@@ -1,0 +1,32 @@
+div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 150px;
+  }
+  
+  input {
+    padding: 5px;
+    width: 200px;
+  }
+  
+  span p {
+    color: red;
+    font-size: 12px;
+    margin: 0;
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
