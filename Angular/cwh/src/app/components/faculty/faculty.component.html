@@ -73,20 +73,37 @@
       <input 
         type="url" 
         name="imageURL" 
-        [(ngModel)]="faculty.imageURL"
+        [(ngModel)]="faculty.imgURL"
         required
-        pattern="https?://.+"
         #imageURL="ngModel"
       >
       <span *ngIf="imageURL.invalid && imageURL.touched">
         <p *ngIf="imageURL.errors?.['required']">Image URL is Required</p>
-        <p *ngIf="imageURL.errors?.['pattern']">Please enter a valid URL (starting with http:// or https://)</p>
+        <!-- <p *ngIf="imageURL.errors?.['pattern']">Please enter a valid URL (starting with http:// or https://)</p> -->
       </span>
     </div>
   
     <!-- Submit Button -->
-    <button type="submit" [disabled]="facultyForm.invalid">Submit</button>
+    <button type="submit" [disabled]="facultyForm.invalid" class="btn btn-primary">Submit</button>
   </form>
   
   <!-- Success Message -->
   <p *ngIf="submitted">Faculty Data Submitted Successfully!</p>
+
+
+
+  <!-- displaying faculties  -->
+   <div class="flexcard">
+  <div class="card" *ngFor="let fac of faculties">
+    <img [src]="fac.imgURL">
+    <div class="card-body">
+        <h3>{{fac.name}}</h3>
+        <p><strong>{{fac.designation}}</strong></p>
+        <p><strong>Degree : </strong>{{fac.degree}} </p>
+        <p><strong>Experience:</strong> {{fac.experience}}</p>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="onEdit(fac)">Edit</button>
+    <button type="button" (click)="onDelete(fac.id)" class="btn btn-danger">Delete</button>
+</div>
+</div>

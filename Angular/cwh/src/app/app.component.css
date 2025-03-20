@@ -63,7 +63,7 @@
   
   /* Content Area */
   .content {
-    margin-top: 70px; /* To account for the fixed navbar height */
+    margin-top: 70px;
     padding: 20px;
     min-height: calc(100vh - 70px); /* Ensure content takes full height minus navbar */
   }
