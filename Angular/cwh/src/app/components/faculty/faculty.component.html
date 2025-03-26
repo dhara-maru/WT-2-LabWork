@@ -101,9 +101,11 @@
         <p><strong>{{fac.designation}}</strong></p>
         <p><strong>Degree : </strong>{{fac.degree}} </p>
         <p><strong>Experience:</strong> {{fac.experience}}</p>
+
+      
     </div>
 
     <button type="button" class="btn btn-primary" (click)="onEdit(fac)">Edit</button>
-    <button type="button" (click)="onDelete(fac.id)" class="btn btn-danger">Delete</button>
+    <button type="button" class="btn btn-danger"  (click)="onDelete(fac.id)">Delete</button>
 </div>
 </div>

@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ApiFacultyService } from '../../api-faculty.service';
 
 @Component({
   selector: 'app-faculty',
-  standalone: true, // Mark as standalone
-  imports: [FormsModule, CommonModule], // BrowserModule is not needed in standalone components
+  standalone: true, 
+  imports: [FormsModule, CommonModule], 
   templateUrl: './faculty.component.html',
-  styleUrls: ['./faculty.component.css'] // Fixed 'styleUrl' to 'styleUrls'
+  styleUrls: ['./faculty.component.css'] 
 })
 export class FacultyComponent {
   faculty = { 
@@ -88,11 +89,37 @@ export class FacultyComponent {
   },
   ]
 
-  onDelete(id : any){
-    this.faculties = this.faculties.filter((fac) => fac.id != id)
-  }
+  // onDelete(id : any){
+  //   this.faculties = this.faculties.filter((fac) => fac.id != id)
+  // }
 
   onEdit(fac : any){
     this.faculty = {...fac}
   }
+
+
+
+  ///////mock api/////////////////////////////////////////////////
+  constructor(private _apifaculty : ApiFacultyService){}
+
+  fetchFaculties(){
+    this._apifaculty.getAll().subscribe((res : any)=>{
+      this.faculties = res;
+    })
+  }
+
+  ngOnInit(){
+    this.fetchFaculties();
+  }
+
+  onDelete(id:any){
+    console.log(id);
+    
+    this._apifaculty.deleteById(id).subscribe(()=>{
+      this.fetchFaculties();
+    })
+  }
+
+  
+  
 }
