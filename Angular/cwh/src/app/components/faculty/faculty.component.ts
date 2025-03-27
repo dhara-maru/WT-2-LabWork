@@ -22,28 +22,28 @@ export class FacultyComponent {
 
   submitted = false;
 
-  onSubmit(form: any) {
-    if (form.valid) {
-      this.submitted = true;
-      console.log('Faculty Data:', this.faculty); 
+  // onSubmit(form: any) {
+  //   if (form.valid) {
+  //     this.submitted = true;
+  //     console.log('Faculty Data:', this.faculty); 
 
-      if(this.faculty.id ==0){
-        this.faculties = [...this.faculties,
-           {...this.faculty, id: this.faculties.length > 0 ? this.faculties[this.faculties.length-1].id + 1 : 1 }
-          ]
-      }
-      else{
-        this.faculties = this.faculties.map((fac) => fac.id == this.faculty.id ? this.faculty : fac)
-      }
-
-
+  //     if(this.faculty.id ==0){
+  //       this.faculties = [...this.faculties,
+  //          {...this.faculty, id: this.faculties.length > 0 ? this.faculties[this.faculties.length-1].id + 1 : 1 }
+  //         ]
+  //     }
+  //     else{
+  //       this.faculties = this.faculties.map((fac) => fac.id == this.faculty.id ? this.faculty : fac)
+  //     }
 
 
 
-      this.faculty = { id: 0, name: "", designation: "", degree: "", experience: "", imgURL: "" };
-      form.resetForm();
-    }
-  }
+
+
+  //     this.faculty = { id: 0, name: "", designation: "", degree: "", experience: "", imgURL: "" };
+  //     form.resetForm();
+  //   }
+  // }
 
 
  faculties = [
@@ -93,33 +93,57 @@ export class FacultyComponent {
   //   this.faculties = this.faculties.filter((fac) => fac.id != id)
   // }
 
-  onEdit(fac : any){
-    this.faculty = {...fac}
-  }
+  // onEdit(fac : any){
+  //   this.faculty = {...fac}
+  // }
 
 
 
-  ///////mock api/////////////////////////////////////////////////
-  constructor(private _apifaculty : ApiFacultyService){}
+   ///////mock api/////////////////////////////////////////////////
+   constructor(private _apifaculty: ApiFacultyService) {}
 
-  fetchFaculties(){
-    this._apifaculty.getAll().subscribe((res : any)=>{
-      this.faculties = res;
-    })
-  }
+   fetchFaculties() {
+     this._apifaculty.getAll().subscribe((res: any) => {
+       this.faculties = res;
+     });
+   }
+ 
+   ngOnInit() {
+     this.fetchFaculties();
+   }
+ 
+   onSubmit(form: any) {
+     if (form.valid) {
+       this.submitted = true;
+       console.log('Faculty Data:', this.faculty);
+ 
+       if (this.faculty.id == 0) {
+         this._apifaculty.addFaculty(this.faculty).subscribe(() => {
+           this.fetchFaculties();
+         });
+       } else {
+         this._apifaculty.updateFaculty(this.faculty.id, this.faculty).subscribe(() => {
+           this.fetchFaculties();
+         });
+       }
+ 
+       this.faculty = { id: 0, name: "", designation: "", degree: "", experience: "", imgURL: "" };
+       form.resetForm();
+     }
+   }
 
-  ngOnInit(){
-    this.fetchFaculties();
-  }
-
-  onDelete(id:any){
-    console.log(id);
-    
-    this._apifaculty.deleteById(id).subscribe(()=>{
-      this.fetchFaculties();
-    })
-  }
-
+   onDelete(id: any) {
+     console.log(id);
+     
+     this._apifaculty.deleteById(id).subscribe(() => {
+       this.fetchFaculties();
+     });
+   }
+ 
+   onEdit(fac: any) {
+     this.faculty = { ...fac };
+   }
+ 
   
   
 }
